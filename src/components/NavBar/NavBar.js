@@ -8,6 +8,8 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 // Images
 import logo from "./../../assets/logo.svg";
+// Components
+import CartButtons from "./CartButtons/CartButtons";
 const NavBar = () => {
   const navLinks = (
     <>
@@ -62,6 +64,7 @@ const NavBar = () => {
           </button>
         </div>
         <ul className={styles["nav-links"]}>{navLinks}</ul>
+        <CartButtons />
       </div>
     </nav>
   );

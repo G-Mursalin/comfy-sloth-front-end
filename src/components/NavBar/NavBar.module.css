@@ -30,9 +30,9 @@
 .nav-links {
   display: none;
 }
-.cart-btn-wrapper {
+/* .cart-btn-wrapper {
   display: none;
-}
+} */
 @media (min-width: 992px) {
   .nav-toggle {
     display: none;
@@ -59,11 +59,8 @@
     padding: 0.5rem;
   }
 
-  /* .nav-links a:hover {
-    border-bottom: 2px solid var(--clr-primary-7);
-  } */
-
-  .cart-btn-wrapper {
+  /* .cart-btn-wrapper {
     display: grid;
-  }
+    border: 5px solid red;
+  } */
 }
