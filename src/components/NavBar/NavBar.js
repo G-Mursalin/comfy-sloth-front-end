@@ -4,6 +4,9 @@ import React from "react";
 import { FaBars } from "react-icons/fa";
 //React Router
 import { Link, NavLink } from "react-router-dom";
+// Redux
+import { useDispatch } from "react-redux";
+import { navBarActions } from "../../store/navBarSlice";
 // CSS
 import styles from "./NavBar.module.css";
 // Images
@@ -11,6 +14,7 @@ import logo from "./../../assets/logo.svg";
 // Components
 import CartButtons from "./CartButtons/CartButtons";
 const NavBar = () => {
+  const dispatch = useDispatch();
   const navLinks = (
     <>
       <li>
@@ -59,7 +63,11 @@ const NavBar = () => {
           <Link to="/">
             <img src={logo} alt="comfy sloth" />
           </Link>
-          <button type="button" className={styles["nav-toggle"]}>
+          <button
+            onClick={() => dispatch(navBarActions.toggleNavbar())}
+            type="button"
+            className={styles["nav-toggle"]}
+          >
             <FaBars />
           </button>
         </div>
