@@ -55,7 +55,12 @@ const Sidebar = () => {
             <FaTimes />
           </button>
         </div>
-        <ul className={styles.links}>{sideBarLinks}</ul>
+        <ul
+          className={styles.links}
+          onClick={() => dispatch(navBarActions.toggleNavbar())}
+        >
+          {sideBarLinks}
+        </ul>
       </div>
     </aside>
   );

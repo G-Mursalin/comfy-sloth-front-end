@@ -17,9 +17,11 @@ const CartButtons = () => {
           <span className={styles["cart-value"]}>12</span>
         </span>
       </Link>
-      <button type="button" className={styles["auth-btn"]}>
-        Login <FaUserPlus />
-      </button>
+      <Link to="/login">
+        <button type="button" className={styles["auth-btn"]}>
+          Login <FaUserPlus />
+        </button>
+      </Link>
     </div>
   );
 };
