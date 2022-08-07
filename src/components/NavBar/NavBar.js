@@ -53,6 +53,18 @@ const NavBar = () => {
           Products
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          style={({ isActive }) => {
+            return {
+              borderBottom: isActive ? "2px solid rgb(197, 164, 145)" : "",
+            };
+          }}
+          to="/checkout"
+        >
+          Check Out
+        </NavLink>
+      </li>
     </>
   );
 

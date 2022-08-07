@@ -1,0 +1,31 @@
+.wrapper {
+  display: grid;
+  gap: 4rem;
+}
+.wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  height: 500px;
+  object-fit: cover;
+}
+.wrapper p {
+  line-height: 2;
+  max-width: 45em;
+  margin: 0 auto;
+  margin-top: 2rem;
+  color: var(--clr-grey-5);
+}
+.title {
+  text-align: left;
+}
+.underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: var(--clr-primary-5);
+}
+@media (min-width: 992px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}

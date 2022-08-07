@@ -9,6 +9,7 @@ import SingleProduct from "./components/Products/SingleProduct";
 import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/NavBar/Sidebar/Sidebar";
 import Cart from "./components/Cart/Cart";
+import CheckOut from "./components/CheckOut/CheckOut";
 import Login from "./components/Authentication/Login";
 import Error from "./components/Error/Error";
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<SingleProduct />} />
+        <Route path="checkout" element={<CheckOut />} />
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />
         <Route path="*" element={<Error />} />
