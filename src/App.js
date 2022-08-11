@@ -14,21 +14,23 @@ import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/CheckOut/CheckOut";
 import Login from "./components/Authentication/Login";
 import Error from "./components/Error/Error";
-// React Redux
-import { useDispatch } from "react-redux";
+// React Toolkit
+import { useDispatch, useSelector } from "react-redux";
+
 import { getAllProducts } from "./store/productsActions";
 // Initial Value
 let init = true;
 function App() {
   const dispatch = useDispatch();
+  const productsError = useSelector((state) => state.products.productsError);
   // Load all products only one time only
   useEffect(() => {
     if (init) {
       init = false;
-      getAllProducts(dispatch);
+      getAllProducts(dispatch, productsError);
       return;
     }
-  }, [dispatch]);
+  }, [dispatch, productsError]);
   return (
     <div className="App">
       <NavBar />
