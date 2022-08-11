@@ -1,3 +1,5 @@
+// React
+import { useEffect } from "react";
 // React Router
 import { Routes, Route } from "react-router-dom";
 // Components
@@ -12,7 +14,21 @@ import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/CheckOut/CheckOut";
 import Login from "./components/Authentication/Login";
 import Error from "./components/Error/Error";
+// React Redux
+import { useDispatch } from "react-redux";
+import { getAllProducts } from "./store/productsActions";
+// Initial Value
+let init = true;
 function App() {
+  const dispatch = useDispatch();
+  // Load all products only one time only
+  useEffect(() => {
+    if (init) {
+      init = false;
+      getAllProducts(dispatch);
+      return;
+    }
+  }, [dispatch]);
   return (
     <div className="App">
       <NavBar />

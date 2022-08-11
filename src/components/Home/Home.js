@@ -4,12 +4,14 @@ import React from "react";
 import Hero from "./Hero/Hero";
 import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
 import Services from "./Services/Services";
+import Contact from "./Contact/Contact";
 const Home = () => {
   return (
     <main>
       <Hero />
       <FeaturedProducts />
       <Services />
+      <Contact />
     </main>
   );
 };
