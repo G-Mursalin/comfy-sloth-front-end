@@ -1,16 +1,27 @@
 .wrapper {
   background: var(--clr-grey-10);
 }
-
-.featured {
+.wrapper .title {
+  text-align: center;
+}
+.wrapper .featured {
   margin: 4rem auto;
   display: grid;
   gap: 2.5rem;
 }
-.featured img {
+
+.wrapper .title .underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: #49a6e9;
+  background: var(--clr-primary-5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapper .featured img {
   height: 225px;
 }
-.btn {
+.wrapper .btn {
   display: block;
   width: 148px;
   margin: 0 auto;
