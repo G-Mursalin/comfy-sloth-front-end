@@ -16,10 +16,11 @@ import Login from "./components/Authentication/Login";
 import Error from "./components/Error/Error";
 // React Toolkit
 import { useDispatch, useSelector } from "react-redux";
-
 import { getAllProducts } from "./store/productsActions";
+
 // Initial Value
 let init = true;
+
 function App() {
   const dispatch = useDispatch();
   const productsError = useSelector((state) => state.products.productsError);
@@ -40,7 +41,7 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
-        <Route path="product/:id" element={<SingleProduct />} />
+        <Route path="products/:id" element={<SingleProduct />} />
         <Route path="checkout" element={<CheckOut />} />
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />

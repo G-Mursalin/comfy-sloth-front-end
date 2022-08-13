@@ -3,7 +3,7 @@ import React from "react";
 // CSS
 import styles from "./CheckOut.module.css";
 // Components
-import PageHero from "../PageHero/PageHero";
+import PageHero from "../Shared/PageHero/PageHero";
 const CheckOut = () => {
   return (
     <main>

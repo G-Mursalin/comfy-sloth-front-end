@@ -12,7 +12,7 @@ const Product = ({ image, name, price, id }) => {
     <div>
       <div className={styles.container}>
         <img src={image} alt={name} />
-        <Link to={`/product/${id}`} className={styles.link}>
+        <Link to={`/products/${id}`} className={styles.link}>
           <FaSearch />
         </Link>
       </div>

@@ -5,7 +5,7 @@ import aboutImg from "./../../assets/hero-bcg.jpeg";
 // CSS
 import styles from "./About.module.css";
 // Components
-import PageHero from "../PageHero/PageHero";
+import PageHero from "../Shared/PageHero/PageHero";
 const About = () => {
   return (
     <main>
