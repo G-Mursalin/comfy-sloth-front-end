@@ -9,6 +9,7 @@ import Loading from "../Shared/Loading/Loading";
 import PageHero from "../Shared/PageHero/PageHero";
 import FetchDataError from "../Shared/FetchDataError/FetchDataError";
 import ProductImages from "./ProductImages";
+import Stars from "./Stars";
 // React Query
 import { useQuery } from "@tanstack/react-query";
 const SingleProduct = () => {
@@ -51,7 +52,25 @@ const SingleProduct = () => {
         </Link>
         <div className={styles["product-center"]}>
           <ProductImages images={images} />
-          <div className=""></div>
+          <section className="content">
+            <h2>{name}</h2>
+            <Stars stars={stars} reviews={reviews} />
+            <h5 className="price"> {price / 100}</h5>
+            <p className="desc"> {description}</p>
+            <p className="info">
+              <span>Available : </span>
+              {stock > 0 ? "In stock" : "out of stock"}
+            </p>
+            <p className="info">
+              <span>SKU : </span>
+              {sku}
+            </p>
+            <p className="info">
+              <span>Brand : </span>
+              {company}
+            </p>
+            <hr />
+          </section>
         </div>
       </div>
     </main>

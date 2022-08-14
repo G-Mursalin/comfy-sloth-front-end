@@ -1,0 +1,15 @@
+.stars-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stars-container span {
+  color: #ffb900;
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}
+.stars-container p {
+  margin-left: 0.5rem;
+  margin-bottom: 0;
+}

@@ -1,11 +1,11 @@
 // React
 import React, { useState } from "react";
 // CSS
-import styles from "./ProductImages";
+import styles from "./ProductImages.module.css";
 const ProductImages = ({ images }) => {
   const [main, setMain] = useState(images[0]);
   return (
-    <section className="left-side-container">
+    <section className={styles.container}>
       <img src={main.url} alt="main" className={styles.main} />
       <div className={styles.gallery}>
         {images.map((image, index) => {
