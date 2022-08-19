@@ -1,0 +1,28 @@
+.add-to-cart-container {
+  display: grid;
+  width: 140px;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+.add-to-cart-container h2 {
+  margin-bottom: 0;
+}
+.add-to-cart-container button {
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  padding: 1rem 0;
+  width: 2rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-to-cart-container h2 {
+  margin-bottom: 0;
+}
+
+.btn-add-to-cart {
+  margin-top: 1rem;
+}

@@ -12,6 +12,8 @@ import ProductImages from "./ProductImages";
 import Stars from "./Stars";
 // React Query
 import { useQuery } from "@tanstack/react-query";
+// Components
+import AddToCart from "./AddToCart";
 const SingleProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,19 +59,20 @@ const SingleProduct = () => {
             <Stars stars={stars} reviews={reviews} />
             <h5 className="price"> {price / 100}</h5>
             <p className="desc"> {description}</p>
-            <p className="info">
+            <p className={styles.info}>
               <span>Available : </span>
-              {stock > 0 ? "In stock" : "out of stock"}
+              {stock > 0 ? `In stock (${stock})` : "out of stock"}
             </p>
-            <p className="info">
+            <p className={styles.info}>
               <span>SKU : </span>
               {sku}
             </p>
-            <p className="info">
+            <p className={styles.info}>
               <span>Brand : </span>
               {company}
             </p>
             <hr />
+            {stock > 0 && <AddToCart product={data} />}
           </section>
         </div>
       </div>
