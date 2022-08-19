@@ -4,10 +4,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // CSS
 import styles from "./AddToCart.module.css";
+// Redux Toolkit
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "../../store/cartSlice";
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
 const AddToCart = ({ product }) => {
-  const { name, price, stock, id, colors } = product;
+  const dispatch = useDispatch();
+  const { name, images, price, stock, id } = product;
   const [amount, setAmount] = useState(1);
   const increase = () => {
     setAmount((perviousAmount) => {
@@ -38,7 +42,22 @@ const AddToCart = ({ product }) => {
           <FaPlus />
         </button>
       </div>
-      <Link to="/cart" className={`btn ${styles["btn-add-to-cart"]}`}>
+      <Link
+        to="/cart"
+        onClick={() =>
+          dispatch(
+            cartActions.addToCart({
+              id,
+              name,
+              image: images[0],
+              price,
+              quantity: amount,
+              stock,
+            })
+          )
+        }
+        className={`btn ${styles["btn-add-to-cart"]}`}
+      >
         add to cart
       </Link>
     </section>
