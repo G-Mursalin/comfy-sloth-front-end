@@ -9,12 +9,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { navBarActions } from "../../../store/navBarSlice";
 // React Route
 import { Link } from "react-router-dom";
+// Auth0
+import { useAuth0 } from "@auth0/auth0-react";
+// React Icons
+import { FaUserPlus, FaUserMinus } from "react-icons/fa";
 // CSS
 import styles from "./Sidebar.module.css";
 // Components
 import CartButtons from "../CartButtons/CartButtons";
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.navBar.isOpen);
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const dispatch = useDispatch();
   const sideBarLinks = (
     <>
@@ -30,9 +35,28 @@ const Sidebar = () => {
       <li>
         <Link to="/cart">Cart</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      {!isAuthenticated && (
+        <li>
+          <button
+            type="button"
+            onClick={loginWithRedirect}
+            className={styles["auth-btn"]}
+          >
+            Login <FaUserPlus />
+          </button>
+        </li>
+      )}
+      {isAuthenticated && (
+        <li>
+          <button
+            type="button"
+            onClick={() => logout({ returnTo: window.location.origin })}
+            className={styles["auth-btn"]}
+          >
+            Logout <FaUserMinus />
+          </button>
+        </li>
+      )}
     </>
   );
 

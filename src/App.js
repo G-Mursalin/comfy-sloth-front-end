@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/NavBar/Sidebar/Sidebar";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/CheckOut/CheckOut";
-import Login from "./components/Authentication/Login";
+
 import Error from "./components/Error/Error";
 // React Toolkit
 import { useDispatch, useSelector } from "react-redux";
@@ -44,7 +44,6 @@ function App() {
         <Route path="products/:id" element={<SingleProduct />} />
         <Route path="checkout" element={<CheckOut />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="login" element={<Login />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
