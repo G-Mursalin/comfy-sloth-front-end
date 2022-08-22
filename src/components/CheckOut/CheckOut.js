@@ -7,7 +7,7 @@ import PageHero from "../Shared/PageHero/PageHero";
 const CheckOut = () => {
   return (
     <main>
-      <PageHero title="checkout" />
+      <PageHero title="check out" />
       <div className={styles.wrapper}>
         <div className="page">
           <h3>Check Out</h3>

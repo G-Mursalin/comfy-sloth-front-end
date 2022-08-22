@@ -10,8 +10,14 @@ const PageHero = ({ title, name }) => {
       <div className="section-center">
         <h3>
           <Link to="/">Home</Link> /{" "}
-          {name ? <Link to="/products">{title}</Link> : title}
-          {name && `/ ${name}`}
+          {name ? (
+            <Link to="/products" className={styles["p-name"]}>
+              {title}
+            </Link>
+          ) : (
+            <spam className={styles["p-name"]}>{title}</spam>
+          )}
+          {name && <spam className={styles["p-name"]}>{`/ ${name}`}</spam>}
         </h3>
       </div>
     </div>

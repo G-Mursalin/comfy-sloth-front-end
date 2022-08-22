@@ -12,7 +12,6 @@ import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/NavBar/Sidebar/Sidebar";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/CheckOut/CheckOut";
-
 import Error from "./components/Error/Error";
 // React Toolkit
 import { useDispatch, useSelector } from "react-redux";
