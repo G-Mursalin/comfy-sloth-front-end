@@ -5,7 +5,7 @@ export const productsSlice = createSlice({
   initialState: {
     products: [],
     filtered_products: [],
-    sort_by: "price-lowest",
+    sort_by: "by-default",
     products_view: false,
     productsLoading: false,
     productsError: false,
@@ -21,6 +21,23 @@ export const productsSlice = createSlice({
     },
     productViewGrid: (state) => {
       state.products_view = false;
+    },
+    productsSort: (state, action) => {
+      if (action.payload.sortType === "by-default") {
+        state.filtered_products = state.products;
+      }
+      if (action.payload.sortType === "price-lowest") {
+        state.filtered_products.sort((a, b) => a.price - b.price);
+      }
+      if (action.payload.sortType === "price-highest") {
+        state.filtered_products.sort((a, b) => b.price - a.price);
+      }
+      if (action.payload.sortType === "name-a") {
+        state.filtered_products.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      if (action.payload.sortType === "name-z") {
+        state.filtered_products.sort((a, b) => b.name.localeCompare(a.name));
+      }
     },
     productsLoading: (state) => {
       state.productsLoading = !state.productsLoading;

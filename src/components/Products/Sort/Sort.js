@@ -12,13 +12,14 @@ const Sort = () => {
   const dispatch = useDispatch();
   const productView = useSelector((state) => state.products.products_view);
   const sortBy = useSelector((state) => state.products.sort_by);
-  console.log(sortBy);
+
   const filteredProducts = useSelector(
     (state) => state.products.filtered_products
   );
+  console.log(filteredProducts);
   const handleSorts = (e) => {
-    // (e.target.value);
     dispatch(productsActions.getSortByValue({ sortValue: e.target.value }));
+    dispatch(productsActions.productsSort({ sortType: e.target.value }));
   };
 
   return (
@@ -50,8 +51,9 @@ const Sort = () => {
           value={sortBy}
           className={styles["sort-input"]}
         >
-          <option value="price-lowest">price (lowest)</option>
-          <option value="price-highest">price (highest)</option>
+          <option value="by-default">default</option>
+          <option value="price-lowest">price (lowest-highest)</option>
+          <option value="price-highest">price (highest-lowest)</option>
           <option value="name-a">name (a-z)</option>
           <option value="name-z">name (z-a)</option>
         </select>
