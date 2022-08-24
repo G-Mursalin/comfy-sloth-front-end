@@ -2,14 +2,12 @@
 import React from "react";
 // CSS
 import styles from "./FeaturedProducts.module.css";
-// React Router
-import { Link } from "react-router-dom";
 // React Toolkit
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // Components
 import Loading from "./../../Shared/Loading/Loading";
 import FetchDataError from "../../Shared/FetchDataError/FetchDataError";
-import Product from "./Product";
+import Product from "../../Shared/Product/Product";
 const FeaturedProducts = () => {
   const isLoading = useSelector((state) => state.products.productsLoading);
   const isError = useSelector((state) => state.products.productsError);

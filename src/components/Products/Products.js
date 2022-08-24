@@ -7,11 +7,8 @@ import Filters from "./Filters/Filters";
 import Sort from "./Sort/Sort";
 import ProductList from "./ProductList/ProductList";
 import PageHero from "../Shared/PageHero/PageHero";
-// React Toolkit
-import { useSelector } from "react-redux";
-const Products = () => {
-  const products = useSelector((state) => state.products.products);
 
+const Products = () => {
   return (
     <main>
       <PageHero title="products" />

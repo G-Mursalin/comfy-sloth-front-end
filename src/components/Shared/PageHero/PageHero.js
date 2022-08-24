@@ -15,9 +15,9 @@ const PageHero = ({ title, name }) => {
               {title}
             </Link>
           ) : (
-            <spam className={styles["p-name"]}>{title}</spam>
+            <span className={styles["p-name"]}>{title}</span>
           )}
-          {name && <spam className={styles["p-name"]}>{`/ ${name}`}</spam>}
+          {name && <span className={styles["p-name"]}>{`/ ${name}`}</span>}
         </h3>
       </div>
     </div>
