@@ -9,7 +9,8 @@ const ProductList = () => {
   const filteredProducts = useSelector(
     (state) => state.products.filtered_products
   );
-  const gridView = useSelector((state) => state.products.grid_view);
+  const productsView = useSelector((state) => state.products.products_view);
+
   if (filteredProducts.length < 1) {
     return (
       <h5 style={{ textTransform: "none" }}>
@@ -18,10 +19,10 @@ const ProductList = () => {
     );
   }
 
-  if (gridView) {
-    return <GridView products={filteredProducts}>product list</GridView>;
+  if (productsView) {
+    return <ListView products={filteredProducts} />;
   }
-  return <ListView products={filteredProducts} />;
+  return <GridView products={filteredProducts}>product list</GridView>;
 };
 
 export default ProductList;

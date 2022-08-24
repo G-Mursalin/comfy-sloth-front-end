@@ -5,7 +5,8 @@ export const productsSlice = createSlice({
   initialState: {
     products: [],
     filtered_products: [],
-    grid_view: true,
+    sort_by: "price-lowest",
+    products_view: false,
     productsLoading: false,
     productsError: false,
   },
@@ -15,11 +16,17 @@ export const productsSlice = createSlice({
       state.products = action.payload.products;
       state.filtered_products = action.payload.products;
     },
-    productView: (state) => {
-      state.grid_view = !state.grid_view;
+    productViewList: (state) => {
+      state.products_view = true;
+    },
+    productViewGrid: (state) => {
+      state.products_view = false;
     },
     productsLoading: (state) => {
       state.productsLoading = !state.productsLoading;
+    },
+    getSortByValue: (state, action) => {
+      state.sort_by = action.payload.sortValue;
     },
     productsError: (state) => {
       state.productsError = !state.productsError;

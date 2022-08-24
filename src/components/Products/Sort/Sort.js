@@ -3,15 +3,22 @@ import React from "react";
 // Icons
 import { BsFillGridFill, BsList } from "react-icons/bs";
 // Redux Toolkit
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productsActions } from "../../../store/productsSlice";
 // CSS
 import styles from "./Sort.module.css";
 
 const Sort = () => {
   const dispatch = useDispatch();
+  const productView = useSelector((state) => state.products.products_view);
+  const sortBy = useSelector((state) => state.products.sort_by);
+  console.log(sortBy);
+  const filteredProducts = useSelector(
+    (state) => state.products.filtered_products
+  );
   const handleSorts = (e) => {
     // (e.target.value);
+    dispatch(productsActions.getSortByValue({ sortValue: e.target.value }));
   };
 
   return (
@@ -19,18 +26,20 @@ const Sort = () => {
       <div className={styles["btn-container"]}>
         <button
           type="button"
-          onClick={() => dispatch(productsActions.productView())}
+          onClick={() => dispatch(productsActions.productViewGrid())}
+          className={!productView ? `${styles["active"]}` : ""}
         >
           <BsFillGridFill />
         </button>
         <button
           type="button"
-          onClick={() => dispatch(productsActions.productView())}
+          onClick={() => dispatch(productsActions.productViewList())}
+          className={productView ? `${styles["active"]}` : ""}
         >
           <BsList />
         </button>
       </div>
-      <p>17 products found</p>
+      <p>{filteredProducts.length} products found</p>
       <hr />
       <div>
         <label htmlFor="sort">sort by</label>
@@ -38,6 +47,7 @@ const Sort = () => {
           name="sort"
           id="sort"
           onChange={handleSorts}
+          value={sortBy}
           className={styles["sort-input"]}
         >
           <option value="price-lowest">price (lowest)</option>
