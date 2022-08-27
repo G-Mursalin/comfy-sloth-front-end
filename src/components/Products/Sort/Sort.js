@@ -16,9 +16,8 @@ const Sort = () => {
   const filteredProducts = useSelector(
     (state) => state.products.filtered_products
   );
-  console.log(filteredProducts);
+
   const handleSorts = (e) => {
-    dispatch(productsActions.getSortByValue({ sortValue: e.target.value }));
     dispatch(productsActions.productsSort({ sortType: e.target.value }));
   };
 
