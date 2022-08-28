@@ -13,7 +13,6 @@ export const productsSlice = createSlice({
       company: "all",
       category: "all",
       min_price: 0,
-      max_price: 0,
       price: 0,
       shipping: false,
     },
@@ -35,6 +34,7 @@ export const productsSlice = createSlice({
       state.filters.max_priceDy = Math.max(
         ...state.filtered_products.map((val) => val.price)
       );
+      state.filters_initial_state.price = state.filters.max_priceDy;
       state.filters.companies = [
         "all",
         ...new Set(state.filtered_products.map((val) => val.company)),
@@ -44,45 +44,45 @@ export const productsSlice = createSlice({
         ...new Set(state.filtered_products.map((val) => val.category)),
       ];
     },
-    searchHandler: (state, action) => {
-      state.filters_initial_state.text = action.payload.searchValue;
+    updateFilters: (state, action) => {
+      state.filters_initial_state[action.payload.filterName] =
+        action.payload.filterValue;
+      const { text, category, company, price, shipping } =
+        state.filters_initial_state;
+      let products = [...state.tempProducts];
+      if (text) {
+        products = products.filter((product) =>
+          product.name.toLowerCase().startsWith(text.toLowerCase())
+        );
+      }
+      if (category !== "all") {
+        products = products.filter(
+          (product) => product.category.toLowerCase() === category.toLowerCase()
+        );
+      }
+      if (company !== "all") {
+        products = products.filter(
+          (product) => product.company.toLowerCase() === company.toLowerCase()
+        );
+      }
+      products = products.filter((product) => product.price <= price);
+      if (shipping) {
+        products = products.filter((product) => product.shipping === true);
+      }
 
-      if (state.filters_initial_state.text.length === 0) {
-        state.filtered_products = state.tempProducts;
-      }
-      state.filtered_products = state.filtered_products.filter((product) =>
-        product.name
-          .toLowerCase()
-          .startsWith(state.filters_initial_state.text.toLowerCase())
-      );
+      state.filtered_products = products;
     },
-    catagoriesHandler: (state, action) => {
-      const category = action.payload.categoryValue;
-      state.filters_initial_state.category = category;
-      if (category === "all") {
-        state.filtered_products = state.tempProducts;
-      } else {
-        state.filtered_products = state.tempProducts;
-        state.filtered_products = state.filtered_products.filter(
-          (product) =>
-            product.category.toLowerCase() ===
-            state.filters_initial_state.category
-        );
-      }
-    },
-    companiesHandler: (state, action) => {
-      const company = action.payload.companyValue.toLowerCase();
-      state.filters_initial_state.company = company;
-      if (company === "all") {
-        state.filtered_products = state.tempProducts;
-      } else {
-        state.filtered_products = state.tempProducts;
-        state.filtered_products = state.filtered_products.filter(
-          (product) =>
-            product.company.toLowerCase() ===
-            state.filters_initial_state.company
-        );
-      }
+    resetInitialFilters: (state) => {
+      state.filters_initial_state = {
+        ...state.filters_initial_state,
+        text: "",
+        company: "all",
+        category: "all",
+        min_price: 0,
+        price: state.filters.max_priceDy,
+        shipping: false,
+      };
+      state.filtered_products = state.tempProducts;
     },
     productViewList: (state) => {
       state.products_view = true;

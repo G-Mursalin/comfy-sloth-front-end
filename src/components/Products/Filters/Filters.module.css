@@ -46,13 +46,15 @@
 .price-filter {
   margin-bottom: 0.25rem;
 }
-.shipping-filter {
+.form-control.shipping-filter {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
   align-items: center;
   text-transform: capitalize;
-  column-gap: 0.5rem;
   font-size: 1rem;
+}
+.form-control.shipping-filter input {
+  margin-top: 0.4rem;
 }
 .clear-btn {
   background: var(--clr-red-dark);
