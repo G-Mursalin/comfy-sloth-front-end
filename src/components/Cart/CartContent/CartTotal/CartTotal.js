@@ -12,7 +12,11 @@ import { formatPrice } from "../../../Shared/Helpers/helpers";
 import styles from "./CartTotal.module.css";
 const CartTotal = () => {
   const { user, loginWithRedirect } = useAuth0();
-  const total_amount = useSelector((state) => state.cart.totalAmount);
+  const items = useSelector((state) => state.cart.items);
+  const total_amount = items.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.subTotal,
+    0
+  );
   const shipping_amount = useSelector((state) => state.cart.shippingAmount);
 
   return (

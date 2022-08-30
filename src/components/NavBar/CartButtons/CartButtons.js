@@ -12,8 +12,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./CartButtons.module.css";
 
 const CartButtons = () => {
-  const totalAddedItems = useSelector((state) => state.cart.totalAddedItems);
-  const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
+  const items = useSelector((state) => state.cart.items);
+  const totalAddedItems = items.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.quantity,
+    0
+  );
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   return (
     <div className={`${styles["wrapper"]} ${styles["cart-btn-wrapper"]}`}>

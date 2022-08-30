@@ -13,6 +13,7 @@ import CartColumns from "./CartColumns/CartColumns";
 import CartTotal from "./CartTotal/CartTotal";
 const CartContent = () => {
   const items = useSelector((state) => state.cart.items);
+  console.log(items);
   const dispatch = useDispatch();
   return (
     <section className="section section-center">

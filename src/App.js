@@ -17,6 +17,7 @@ import Error from "./components/Error/Error";
 // React Toolkit
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "./store/productsActions";
+import { cartActions } from "./store/cartSlice";
 // Auth0
 import { useAuth0 } from "@auth0/auth0-react";
 // Initial Value
@@ -26,14 +27,25 @@ function App() {
   const dispatch = useDispatch();
   const { user } = useAuth0();
   const productsError = useSelector((state) => state.products.productsError);
-  // Load all products only one time only
+  const items = useSelector((state) => state.cart.items);
+
+  // Load all products from API and get local storage value
   useEffect(() => {
     if (init) {
       init = false;
+      dispatch(
+        cartActions.setItemsInitialValue({
+          savedData: JSON.parse(localStorage.getItem("comfy-sloth-cart")),
+        })
+      );
       getAllProducts(dispatch, productsError);
       return;
     }
   }, [dispatch, productsError]);
+  // Set Selected Products to Local Storage
+  useEffect(() => {
+    dispatch(cartActions.saveCartItemsToLocalStorage());
+  }, [items, dispatch]);
   return (
     <div className="App">
       <NavBar />

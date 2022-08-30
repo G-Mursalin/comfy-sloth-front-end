@@ -11,9 +11,9 @@ import PageHero from "../Shared/PageHero/PageHero";
 import CartContent from "./CartContent/CartContent";
 
 const Cart = () => {
-  const totalAddedItems = useSelector((state) => state.cart.totalAddedItems);
+  const items = useSelector((state) => state.cart.items);
 
-  if (!totalAddedItems) {
+  if (!items.length) {
     return (
       <main className="page-100">
         <div className={styles.empty}>
