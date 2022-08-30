@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 //CSS
 import styles from "./Product.module.css";
+// Helpers
+import { formatPrice } from "../Helpers/helpers";
 
 const Product = ({ image, name, price, id }) => {
   return (
@@ -18,7 +20,7 @@ const Product = ({ image, name, price, id }) => {
       </div>
       <footer className={styles.productFooter}>
         <h5>{name}</h5>
-        <p>${price / 100}</p>
+        <p>{formatPrice(price)}</p>
       </footer>
     </div>
   );

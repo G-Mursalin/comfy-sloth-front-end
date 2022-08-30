@@ -12,7 +12,6 @@ export const productsSlice = createSlice({
       text: "",
       company: "all",
       category: "all",
-      min_price: 0,
       price: 0,
       shipping: false,
     },
@@ -94,19 +93,19 @@ export const productsSlice = createSlice({
       state.sort_by = action.payload.sortType;
       if (state.sort_by === "by-default") {
         state.filtered_products = state.products;
-        state.tempProducts = state.products;
+        state.tempProducts = state.filtered_products;
       } else if (state.sort_by === "price-lowest") {
         state.filtered_products.sort((a, b) => a.price - b.price);
-        state.tempProducts.sort((a, b) => a.price - b.price);
+        state.tempProducts = state.filtered_products;
       } else if (state.sort_by === "price-highest") {
         state.filtered_products.sort((a, b) => b.price - a.price);
-        state.tempProducts.sort((a, b) => b.price - a.price);
+        state.tempProducts = state.filtered_products;
       } else if (state.sort_by === "name-a") {
         state.filtered_products.sort((a, b) => a.name.localeCompare(b.name));
-        state.tempProducts.sort((a, b) => a.name.localeCompare(b.name));
+        state.tempProducts = state.filtered_products;
       } else if (state.sort_by === "name-z") {
         state.filtered_products.sort((a, b) => b.name.localeCompare(a.name));
-        state.tempProducts.sort((a, b) => b.name.localeCompare(a.name));
+        state.tempProducts = state.filtered_products;
       }
     },
     productsLoading: (state) => {

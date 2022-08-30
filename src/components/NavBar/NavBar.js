@@ -11,10 +11,13 @@ import { navBarActions } from "../../store/navBarSlice";
 import styles from "./NavBar.module.css";
 // Images
 import logo from "./../../assets/logo.svg";
+// Auth0
+import { useAuth0 } from "@auth0/auth0-react";
 // Components
 import CartButtons from "./CartButtons/CartButtons";
 const NavBar = () => {
   const dispatch = useDispatch();
+  const { user } = useAuth0();
   const navLinks = (
     <>
       <li>
@@ -54,16 +57,18 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
-          style={({ isActive }) => {
-            return {
-              borderBottom: isActive ? "2px solid rgb(197, 164, 145)" : "",
-            };
-          }}
-          to="/checkout"
-        >
-          Check Out
-        </NavLink>
+        {user && (
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                borderBottom: isActive ? "2px solid rgb(197, 164, 145)" : "",
+              };
+            }}
+            to="/checkout"
+          >
+            Check Out
+          </NavLink>
+        )}
       </li>
     </>
   );

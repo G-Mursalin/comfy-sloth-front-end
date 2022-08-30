@@ -5,15 +5,17 @@ import styles from "./SingleProduct.module.css";
 // React Router
 import { useParams, useNavigate, Link } from "react-router-dom";
 // Components
-import Loading from "../Shared/Loading/Loading";
-import PageHero from "../Shared/PageHero/PageHero";
-import FetchDataError from "../Shared/FetchDataError/FetchDataError";
-import ProductImages from "./ProductImages";
-import Stars from "./Stars";
+import Loading from "../Loading/Loading";
+import PageHero from "../PageHero/PageHero";
+import FetchDataError from "../FetchDataError/FetchDataError";
+import ProductImages from "./ProductImages/ProductImages";
+import Stars from "./Stars/Stars";
 // React Query
 import { useQuery } from "@tanstack/react-query";
+// Helpers
+import { formatPrice } from "../Helpers/helpers";
 // Components
-import AddToCart from "./AddToCart";
+import AddToCart from "./AddToCart/AddToCart";
 const SingleProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -57,8 +59,8 @@ const SingleProduct = () => {
           <section className="content">
             <h2>{name}</h2>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className="price"> {price / 100}</h5>
-            <p className="desc"> {description}</p>
+            <h5 className={styles.price}> {formatPrice(price)}</h5>
+            <p className={styles.desc}> {description}</p>
             <p className={styles.info}>
               <span>Available : </span>
               {stock > 0 ? `In stock (${stock})` : "out of stock"}

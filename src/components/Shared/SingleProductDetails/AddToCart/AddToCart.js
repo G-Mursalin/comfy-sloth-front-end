@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 // CSS
 import styles from "./AddToCart.module.css";
 // Redux Toolkit
-import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../../store/cartSlice";
 // Icons
 import { FaPlus, FaMinus } from "react-icons/fa";
 const AddToCart = ({ product }) => {

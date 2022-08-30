@@ -4,6 +4,8 @@ import React from "react";
 import styles from "./ListView.module.css";
 // React Router
 import { Link } from "react-router-dom";
+// Helpers
+import { formatPrice } from "../../../Shared/Helpers/helpers";
 // Components
 import Product from "../../../Shared/Product/Product";
 const ListView = ({ products }) => {
@@ -16,7 +18,7 @@ const ListView = ({ products }) => {
             <img src={image} alt={name} />
             <div>
               <h4>{name}</h4>
-              <h5 className={styles.price}>${price / 1000}</h5>
+              <h5 className={styles.price}>{formatPrice(price)}</h5>
               <p>{description.substring(0, 150)}...</p>
               <Link to={`/products/${id}`} className={`btn ${styles["p-btn"]}`}>
                 Details

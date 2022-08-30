@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
 // Components
 import PageHero from "../Shared/PageHero/PageHero";
-import CartContent from "./CartContent";
+import CartContent from "./CartContent/CartContent";
 
 const Cart = () => {
   const totalAddedItems = useSelector((state) => state.cart.totalAddedItems);

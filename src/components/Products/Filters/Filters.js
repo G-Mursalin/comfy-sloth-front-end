@@ -12,7 +12,7 @@ const Filters = () => {
     (state) => state.products.filters
   );
   // Get State values fo Filter
-  const { text, company, category, min_price, price, shipping } = useSelector(
+  const { text, company, category, price, shipping } = useSelector(
     (state) => state.products.filters_initial_state
   );
   //  Update Filters
@@ -94,7 +94,7 @@ const Filters = () => {
             <input
               type="range"
               name="price"
-              min={min_price}
+              min={0}
               max={max_priceDy}
               onChange={updateFilters}
               value={price}

@@ -19,7 +19,7 @@ import styles from "./Sidebar.module.css";
 import CartButtons from "../CartButtons/CartButtons";
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.navBar.isOpen);
-  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const dispatch = useDispatch();
   const sideBarLinks = (
     <>
@@ -32,6 +32,7 @@ const Sidebar = () => {
       <li>
         <Link to="/products">Products</Link>
       </li>
+      <li>{user && <Link to="/checkout">Checkout</Link>}</li>
       <li>
         <Link to="/cart">Cart</Link>
       </li>

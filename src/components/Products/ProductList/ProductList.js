@@ -10,10 +10,10 @@ const ProductList = () => {
     (state) => state.products.filtered_products
   );
   const productsView = useSelector((state) => state.products.products_view);
-
-  if (filteredProducts.length < 1) {
+  console.log(filteredProducts.length);
+  if (filteredProducts.length === 0) {
     return (
-      <h5 style={{ textTransform: "none" }}>
+      <h5 style={{ color: "red" }}>
         Sorry, no products matched your search...
       </h5>
     );

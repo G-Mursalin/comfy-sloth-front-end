@@ -6,10 +6,11 @@ import styles from "./CartContent.module.css";
 import { Link } from "react-router-dom";
 // Redux Toolkit
 import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "../../store/cartSlice";
+import { cartActions } from "../../../store/cartSlice";
 // Components
-import CartItem from "./CartItem";
-import CartColumns from "./CartColumns";
+import CartItem from "./CartItem/CartItem";
+import CartColumns from "./CartColumns/CartColumns";
+import CartTotal from "./CartTotal/CartTotal";
 const CartContent = () => {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const CartContent = () => {
           clear shopping cart
         </button>
       </div>
+      <CartTotal />
     </section>
   );
 };

@@ -4,9 +4,11 @@ import React from "react";
 import styles from "./CartItem.module.css";
 // Icons
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
+// Helpers
+import { formatPrice } from "../../../Shared/Helpers/helpers";
 // Redux Toolkit
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/cartSlice";
+import { cartActions } from "../../../../store/cartSlice";
 const CartItem = ({ id, image, name, price, quantity, stock, subTotal }) => {
   const dispatch = useDispatch();
   return (
@@ -15,10 +17,10 @@ const CartItem = ({ id, image, name, price, quantity, stock, subTotal }) => {
         <img src={image.url} alt={name} />
         <div>
           <h5 className={styles.name}>{name}</h5>
-          <h5 className={styles["price-small"]}>${price / 1000}</h5>
+          <h5 className={styles["price-small"]}>{formatPrice(price)}</h5>
         </div>
       </div>
-      <h5 className={styles.price}>${price / 1000}</h5>
+      <h5 className={styles.price}>{formatPrice(price)}</h5>
       <div className={styles["add-to-cart-container"]}>
         <button
           type="button"
@@ -34,7 +36,7 @@ const CartItem = ({ id, image, name, price, quantity, stock, subTotal }) => {
           <FaPlus />
         </button>
       </div>
-      <h5 className={styles.subtotal}>${subTotal / 1000}</h5>
+      <h5 className={styles.subtotal}>{formatPrice(subTotal)}</h5>
       <button
         type="button"
         className={styles["remove-btn"]}

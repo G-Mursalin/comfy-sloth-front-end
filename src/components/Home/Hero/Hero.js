@@ -11,6 +11,7 @@ import heroBcg2 from "./../../../assets/hero-bcg-2.jpeg";
 import styles from "./Hero.module.css";
 const Hero = () => {
   const { user } = useAuth0();
+
   return (
     <section className={`${styles.wrapper} section-center`}>
       <article className="content">

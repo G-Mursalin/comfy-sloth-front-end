@@ -2,7 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
   name: "cart",
-  initialState: { items: [], totalAddedItems: 0 },
+  initialState: {
+    items: [],
+    totalAddedItems: 0,
+    totalAmount: 0,
+    shippingAmount: 500,
+  },
   reducers: {
     addToCart: (state, action) => {
       const newItem = action.payload;
@@ -24,6 +29,10 @@ export const cartSlice = createSlice({
         isExist.quantity = isExist.quantity + newItem.quantity;
         isExist.subTotal = isExist.subTotal + newItem.price * newItem.quantity;
       }
+      state.totalAmount = state.items.reduce(
+        (previousValue, currentValue) => previousValue + currentValue.subTotal,
+        0
+      );
     },
     addToCartOneByOne: (state, action) => {
       const addedItemId = action.payload;
@@ -32,6 +41,10 @@ export const cartSlice = createSlice({
       addedItem.quantity++;
       addedItem.subTotal = addedItem.subTotal + addedItem.price;
       state.totalAddedItems++;
+      state.totalAmount = state.items.reduce(
+        (previousValue, currentValue) => previousValue + currentValue.subTotal,
+        0
+      );
     },
     removeFromCartOneByOne: (state, action) => {
       const addedItemId = action.payload;
@@ -40,6 +53,10 @@ export const cartSlice = createSlice({
       addedItem.quantity--;
       addedItem.subTotal = addedItem.subTotal - addedItem.price;
       state.totalAddedItems--;
+      state.totalAmount = state.items.reduce(
+        (previousValue, currentValue) => previousValue + currentValue.subTotal,
+        0
+      );
     },
     removeOneItem: (state, action) => {
       const removedItemId = action.payload;
@@ -48,10 +65,15 @@ export const cartSlice = createSlice({
       );
       state.totalAddedItems = state.totalAddedItems - removedItem.quantity;
       state.items = state.items.filter((item) => item.id !== removedItemId.id);
+      state.totalAmount = state.items.reduce(
+        (previousValue, currentValue) => previousValue + currentValue.subTotal,
+        0
+      );
     },
     removeAllItems: (state) => {
       state.totalAddedItems = 0;
       state.items = [];
+      state.totalAmount = 0;
     },
   },
 });
