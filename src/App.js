@@ -14,6 +14,7 @@ import Sidebar from "./components/NavBar/Sidebar/Sidebar";
 import Cart from "./components/Cart/Cart";
 import CheckOut from "./components/CheckOut/CheckOut";
 import Error from "./components/Error/Error";
+import Loading from "./components/Shared/Loading/Loading";
 // React Toolkit
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "./store/productsActions";
@@ -25,7 +26,7 @@ let init = true;
 
 function App() {
   const dispatch = useDispatch();
-  const { user } = useAuth0();
+  const { user, isLoading } = useAuth0();
   const productsError = useSelector((state) => state.products.productsError);
   const items = useSelector((state) => state.cart.items);
 
@@ -46,6 +47,9 @@ function App() {
   useEffect(() => {
     dispatch(cartActions.saveCartItemsToLocalStorage());
   }, [items, dispatch]);
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="App">
       <NavBar />

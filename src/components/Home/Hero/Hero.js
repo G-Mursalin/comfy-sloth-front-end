@@ -9,9 +9,13 @@ import heroBcg from "./../../../assets/hero-bcg.jpeg";
 import heroBcg2 from "./../../../assets/hero-bcg-2.jpeg";
 // CSS
 import styles from "./Hero.module.css";
+// Components
+import Loading from "../../Shared/Loading/Loading";
 const Hero = () => {
-  const { user } = useAuth0();
-
+  const { user, isLoading } = useAuth0();
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <section className={`${styles.wrapper} section-center`}>
       <article className="content">

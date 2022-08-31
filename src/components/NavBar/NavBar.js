@@ -15,9 +15,13 @@ import logo from "./../../assets/logo.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 // Components
 import CartButtons from "./CartButtons/CartButtons";
+import Loading from "../Shared/Loading/Loading";
 const NavBar = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth0();
+  const { user, isLoading } = useAuth0();
+  if (isLoading) {
+    return <Loading />;
+  }
   const navLinks = (
     <>
       <li>

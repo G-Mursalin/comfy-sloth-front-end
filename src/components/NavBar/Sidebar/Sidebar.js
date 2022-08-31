@@ -16,11 +16,15 @@ import { FaUserPlus, FaUserMinus } from "react-icons/fa";
 // CSS
 import styles from "./Sidebar.module.css";
 // Components
-import CartButtons from "../CartButtons/CartButtons";
+import Loading from "../../Shared/Loading/Loading";
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.navBar.isOpen);
-  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { user, loginWithRedirect, isAuthenticated, logout, isLoading } =
+    useAuth0();
   const dispatch = useDispatch();
+  if (isLoading) {
+    return <Loading />;
+  }
   const sideBarLinks = (
     <>
       <li>

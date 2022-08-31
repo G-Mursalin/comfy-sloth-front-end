@@ -19,8 +19,6 @@ import { Provider } from "react-redux";
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// dev-golam-mursalin-360.us.auth0.com
-// 8ds6wX7jjKFwugpb8SZXg32qTDvf9P0d
 root.render(
   <React.StrictMode>
     <Auth0Provider

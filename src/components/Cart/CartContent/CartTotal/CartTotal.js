@@ -10,15 +10,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { formatPrice } from "../../../Shared/Helpers/helpers";
 // CSS
 import styles from "./CartTotal.module.css";
+//Components
+import Loading from "../../../Shared/Loading/Loading";
 const CartTotal = () => {
-  const { user, loginWithRedirect } = useAuth0();
+  const { user, loginWithRedirect, isLoading } = useAuth0();
   const items = useSelector((state) => state.cart.items);
   const total_amount = items.reduce(
     (previousValue, currentValue) => previousValue + currentValue.subTotal,
     0
   );
   const shipping_amount = useSelector((state) => state.cart.shippingAmount);
-
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <section className={styles["cart-total"]}>
       <div>
