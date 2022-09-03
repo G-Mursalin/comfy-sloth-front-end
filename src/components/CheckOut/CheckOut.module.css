@@ -1,2 +1,8 @@
-.wrapper {
+.checkout-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkout-wrapper .empty {
+  text-align: center;
 }
