@@ -23,7 +23,7 @@ const CheckOut = () => {
             </Link>
           </div>
         ) : (
-          <div style={{ width: "80vh", padding: "20px" }}>
+          <div style={{ width: "80vh", padding: "20px", maxWidth: "900px" }}>
             <StripeCheckout />
           </div>
         )}

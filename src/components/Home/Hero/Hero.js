@@ -30,9 +30,11 @@ const Hero = () => {
           comfort zone
         </h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex
-          dignissimos iure vel inventore soluta ipsum id doloribus illo,
-          voluptatibus minus velit placeat, pariatur neque dolore. Eos tempora
+          Fill your home with furniture that brings you comfort as soon as you
+          walk in the door. From cozy sectionals that work well for big
+          get-togethers to beds that invite you for a good night's sleep after a
+          long day, when you want to add modern, contemporary flair to your
+          living space, comfy sloth has a wealth of items to enliven your space.
         </p>
         <Link to="/products" className={`btn ${styles["hero-btn"]}`}>
           shop now

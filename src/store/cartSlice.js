@@ -49,7 +49,11 @@ export const cartSlice = createSlice({
       state.totalAmount = 0;
     },
     setItemsInitialValue: (state, action) => {
-      state.items = action.payload.savedData;
+      if (action.payload.savedData === null) {
+        state.items = [];
+      } else {
+        state.items = action.payload.savedData;
+      }
     },
     saveCartItemsToLocalStorage: (state) => {
       localStorage.setItem("comfy-sloth-cart", JSON.stringify(state.items));

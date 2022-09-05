@@ -18,19 +18,18 @@ const About = () => {
             <div className={styles.underline}></div>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum est
-            expedita tenetur magnam dolor dolorem repellat aspernatur natus.
-            Quod cumque omnis itaque quis hic, reprehenderit totam pariatur
-            consequuntur et id? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Earum est expedita tenetur magnam dolor dolorem
-            repellat aspernatur natus. Quod cumque omnis itaque quis hic,
-            reprehenderit totam pariatur consequuntur et id? adipisicing elit.
-            Earum est expedita tenetur magnam dolor dolorem repellat aspernatur
-            natus. Quod cumque omnis itaque quis hic, reprehenderit totam
-            pariatur consequuntur et id? adipisicing elit. Earum est expedita
-            tenetur magnam dolor dolorem repellat aspernatur natus. Quod cumque
-            omnis itaque quis hic, reprehenderit totam pariatur consequuntur et
-            id?
+            We believe in great design, from around the corner to around the
+            globe. That means supporting the people behind your products with
+            ethical production, worker well-being and economic impact. From our
+            Brooklyn studios, our in-house team designs exclusive collections
+            you won't find anywhere else. We champion the maker movement in your
+            own backyard to help strengthen local economies and boost burgeoning
+            artists and designers, especially in underrepresented areas. We
+            collaborate with artisan collectives around the world to help
+            preserve their handcraft traditions and create opportunities for
+            sustainable employment, especially in rural areas. We were the
+            first-ever home retailer to join Fair Trade USA, ensuring workers
+            fair wages, healthy working conditions and community development.
           </p>
         </article>
       </div>

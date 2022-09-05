@@ -8,11 +8,7 @@ const Contact = () => {
       <div className="section-center">
         <h3>Join our newsletter and get 20% off</h3>
         <div className={styles.content}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            veniam repudiandae vel ab id, fuga praesentium nobis natus ipsam
-            vero?
-          </p>
+          <p>Keep me updated on Comfy Sloth</p>
           <form
             className={styles["contact-form"]}
             action="https://formspree.io/f/xpznzwdy"

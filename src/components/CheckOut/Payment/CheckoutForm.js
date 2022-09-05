@@ -32,7 +32,7 @@ const CheckoutForm = () => {
   // Send Data to Backend
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://comfy-sloth.onrender.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items, shippingAmount }),
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -73,8 +73,9 @@ const CheckoutForm = () => {
     setCardError(error?.message || "");
     setSuccess(false);
     // Confirm a PaymentIntent by payment method
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
+    const { error: confirmError } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
         payment_method: {
           card: card,
           billing_details: {
@@ -82,7 +83,8 @@ const CheckoutForm = () => {
             email: user?.email,
           },
         },
-      });
+      }
+    );
     if (confirmError) {
       setCardError(confirmError?.message);
       setProcessing(false);
@@ -112,6 +114,8 @@ const CheckoutForm = () => {
           <h4>Hello, {user && user?.name}</h4>
           <p>Your total is {formatPrice(shippingAmount + total_amount)}</p>
           <p>Test Card Number : 4242 4242 4242 4242</p>
+          <p>MM/YY : Any future date</p>
+          <p>CVC : Any 3 digits</p>
         </article>
       )}
       <form onSubmit={handleSubmit}>
