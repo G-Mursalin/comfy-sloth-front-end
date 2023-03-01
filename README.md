@@ -1,6 +1,10 @@
 # Comfy Sloth
 
-Live Website Link: [https://comfy-sloth-furnitures1.netlify.app/](https://comfy-sloth-furnitures1.netlify.app/)
+## Live Website Link: [https://comfy-sloth-furnitures1.netlify.app/](https://comfy-sloth-furnitures1.netlify.app/)
+
+## Frond-end Repository Link: [https://github.com/G-Mursalin/comfy-sloth-front-end](https://github.com/G-Mursalin/comfy-sloth-front-end)
+
+## Back-end Repository Link: [https://github.com/G-Mursalin/comfy-sloth-back-end](https://github.com/G-Mursalin/comfy-sloth-back-end)
 
 # Some Feature Comfy Sloth
 
